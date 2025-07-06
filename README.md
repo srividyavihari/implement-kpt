@@ -8,7 +8,6 @@ It includes:
 
 ## 📁 Project Structure
 
-```plaintext
 .
 ├── Kptfile
 ├── kustomization.yaml
@@ -21,17 +20,17 @@ It includes:
 
 ## ⚙️ Tools Used
 
-KPT: for mutating and validating resources declaratively
+**KPT**: for mutating and validating resources declaratively
 
-Kustomize: for patching and managing overlays
+**Kustomize**: for patching and managing overlays
 
-KRM Functions:
+**KRM Functions**:
 
-set-labels: adds labels to resources
+**set-labels**: adds labels to resources
 
-set-namespace: sets namespace on resources
+**set-namespace**: sets namespace on resources
 
-kubeval: validates resource schema
+**kubeval**: validates resource schema
 
 ## 🔁 Workflow
 
@@ -46,7 +45,8 @@ This runs the functions defined in the Kptfile, applying labels and namespaces.
 Apply patches and combine resources with:
 
 kustomize build .
-This command:
+
+**This command:**
 
 Loads all YAMLs from the resources list
 
@@ -63,7 +63,7 @@ kpt live apply ./packages
 # 4. Clean Up
 To delete the applied resources from the cluster:
 
-kpt live destroy .
+kpt live destroy ./packages
 
 ## ✅ Outcome
 Kubernetes resources are standardized and validated using kpt
