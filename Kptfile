@@ -1,0 +1,21 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata:
+  name: nginx
+  # kpt-merge: wordpress/Kptfile # Optional: if this Kptfile is a subpackage, this comment is used for merging
+  labels:
+    app: nginx
+  namespace: nginx
+pipeline:
+  mutators:
+    - name: set label
+      image: gcr.io/kpt-fn/set-labels:v0.2.0
+      configMap:
+        app: nginx
+    - image: gcr.io/kpt-fn/set-namespace:v0.4
+      configMap:
+        namespace: nginx
+  validators:
+    - image: gcr.io/kpt-fn/kubeval:v0.1
+      configMap:
+        ignore_missing_schemas: "true"

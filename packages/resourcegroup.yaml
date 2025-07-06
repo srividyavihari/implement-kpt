@@ -1,0 +1,7 @@
+apiVersion: kpt.dev/v1alpha1
+kind: ResourceGroup
+metadata:
+  name: inventory-35758579
+  namespace: nginx
+  labels:
+    cli-utils.sigs.k8s.io/inventory-id: ac72c3829b4469c539cfc87030fd161c89deb5d7-1751787550671242000

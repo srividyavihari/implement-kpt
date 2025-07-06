@@ -1,0 +1,47 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- packages/base/nginx_deployment.yaml
+- packages/ns/nginx_namespace.yaml
+- packages/base/nginx_service.yaml
+patches:
+- patch: |-
+    - op: remove
+      path: /metadata/labels/app1
+    - op: remove
+      path: /metadata/labels/env
+    - op: remove
+      path: /spec/selector/matchLabels/app1
+    - op: remove
+      path: /spec/selector/matchLabels/env
+    - op: remove
+      path: /spec/template/metadata/labels/env
+    - op: remove
+      path: /spec/template/metadata/labels/app1
+  target:
+    kind: Deployment
+    name: nginx-deployment
+- patch: |-
+    - op: remove
+      path: /metadata/labels/app1
+    - op: remove
+      path: /metadata/labels/env
+  target:
+    kind: Namespace
+    name: nginx
+- patch: |-
+    - op: remove
+      path: /metadata/labels/app1
+    - op: remove
+      path: /metadata/labels/env
+    - op: remove
+      path: /spec/selector/app1
+    - op: remove
+      path: /spec/selector/env
+  target:
+    kind: Service
+    name: nginx-service
+metadata:
+  labels:
+    app: nginx
+  namespace: nginx
