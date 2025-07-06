@@ -39,14 +39,18 @@ It includes:
 # 1. Render the KPT Pipeline
 Apply KPT pipeline functions to mutate and validate your resource files:
 
+```bash
 kpt fn render
+```
 
 This runs the functions defined in the Kptfile, applying labels and namespaces.
 
 # 2. Customize with Kustomize
 Apply patches and combine resources with:
 
+```bash
 kustomize build .
+```
 
 **This command:**
 
@@ -59,13 +63,17 @@ Adds common labels and namespace metadata
 # 3. Apply to the Cluster
 Apply the fully rendered manifests:
 
+```bash
 kpt live init ./packages
 kpt live apply ./packages
+```
 
 # 4. Clean Up
 To delete the applied resources from the cluster:
 
+```bash
 kpt live destroy ./packages
+```
 
 ## ✅ Outcome
 Kubernetes resources are standardized and validated using kpt
