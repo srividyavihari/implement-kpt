@@ -8,6 +8,7 @@ It includes:
 
 ## 📁 Project Structure
 
+```plaintext
 .
 ├── Kptfile
 ├── kustomization.yaml
@@ -17,6 +18,7 @@ It includes:
     │   └── nginx_service.yaml
     └── ns/
         └── nginx_namespace.yaml
+```
 
 ## ⚙️ Tools Used
 
